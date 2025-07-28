@@ -1,6 +1,6 @@
 import React from "react";
-import Keyboard from '../../components/Project-Images/about-image.jpeg';
-import Deskspace from '../../components/Project-Images/deskspace.png';
+import artright from '../../components/Project-Images/about-image.jpeg';
+import artbottom from '../../components/Project-Images/about-image-footer.jpeg';
 import Image from "next/image";
 import ViewServices from "@/components/ViewServices";
 
@@ -31,8 +31,8 @@ const About = () => {
             </div>
             <div>
               <Image
-                src={Keyboard}
-                alt="Soft Corner Keyboard"
+                src={artright}
+                alt="art-right"
                 width={500}
                 height={500}
                 style={{ position: "sticky", width: "100%", height: "100%", objectFit: "cover" }}
@@ -41,7 +41,7 @@ const About = () => {
           </div>         
         </main>
       
-      <footer style={{ position: "relative", backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${Deskspace.src}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "100vh" }}>            
+      <footer style={{ position: "relative", backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${artbottom.src}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "100vh" }}>            
             <div className="center" >
               <div><h2 style={{ color: "white", textAlign: "center"}}>Get Started</h2></div>
               <div style={{ fontSize: "1.5em", fontWeight: "100"}}>
