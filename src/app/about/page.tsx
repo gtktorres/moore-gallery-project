@@ -1,5 +1,5 @@
 import React from "react";
-import Keyboard from '../../components/Project-Images/soft corner keyboard.png';
+import Keyboard from '../../components/Project-Images/about-image.jpeg';
 import Deskspace from '../../components/Project-Images/deskspace.png';
 import Image from "next/image";
 import ViewServices from "@/components/ViewServices";
@@ -19,7 +19,7 @@ const About = () => {
               <br />
               <div>
                 <p style={{fontWeight:"bold"}}>
-                  Fullstack Developer, Consultant, and Broncos fan in Colorado
+                  Artist, Consultant, and Nature Enthusiast
                 </p>
               </div>
               <br />
