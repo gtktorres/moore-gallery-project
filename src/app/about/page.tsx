@@ -35,7 +35,7 @@ const About = () => {
                 alt="art-right"
                 width={500}
                 height={500}
-                style={{ position: "sticky", width: "75%", height: "75%", objectFit: "cover", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", marginLeft: "5rem" }}
+                style={{ position: "sticky", width: "75%", height: "75%", objectFit: "cover", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",  marginTop: "min(5rem, 15%)", marginLeft: "5rem" }}
               />
             </div>
           </div>         
@@ -49,7 +49,7 @@ const About = () => {
             //display: "flex",
             //justifyContent: "center",
             //alignItems: "center",
-            marginTop: "2.5rem",
+            marginTop: "min(5rem, 15%)",
             display: "left"
           }} >
               {/* <div style={{ fontSize: "1.5em", fontWeight: "100"}}>

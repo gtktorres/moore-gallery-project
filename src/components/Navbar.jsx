@@ -9,9 +9,8 @@ const MENU_LIST = [
   { text: "Course", href: "/" },
   { text: "About", href: "/about" },
   { text: "Contact", href: "/contact" },
-  { text: "Login", href: "/" },
-  { text: "Cart", href: "/" },
-  { text: "Book Now", href: "/booking" }
+  { text: "Book Now", href: "/booking" },
+  { text: "Login", href: "/" }
 ];
 
 const Navbar = () => {
@@ -32,22 +31,38 @@ const Navbar = () => {
           <div></div>
           <div></div>
         </div> */}
-        <div className={`${navActive ? "active" : ""} nav__menu-list`}
-          style={{            
-            margin: "0 auto",
-          }}>
-          {MENU_LIST.map((menu, idx) => (
-            <div
-              onClick={() => {
-                setActiveIdx(idx);
-                setNavActive(false);
-              }}
-              key={menu.text}
-            >
-              <NavItem active={activeIdx === idx} {...menu} />
-            </div>
-          ))}
-        </div>
+        
+          <div className={`${navActive ? "active" : ""} nav__menu-list`}
+            style={{            
+              margin: "0 auto",
+              float: "right",
+            }}>
+            {MENU_LIST.map((menu, idx) => (
+              <div
+                onClick={() => {
+                  setActiveIdx(idx);
+                  setNavActive(false);
+                }}
+                key={menu.text}
+              >
+                <NavItem active={activeIdx === idx} {...menu} />
+              </div>
+            ))}
+          </div>
+          <div>
+           
+          {/* // className="nav__menu-bar" onClick={() => href="/cart"}>
+          //      <NavItem
+          //       text="Cart"
+          //       href="/cart"
+          //       onClick={() => href="/cart"}
+              > */}
+          <Link href="/" style={{ textDecoration: "none", color: "black", fontSize: "1.5rem", fontWeight: "bold" }}>
+            <p className="logo" style={{ fontSize: "1.5rem", float: "right", marginRight: "min(2rem, 15%)", marginTop: "min(2rem, 15%)" }}>Cart</p>
+          </Link>
+            
+          </div>
+        
       </nav>
     </header>
   );
