@@ -1,8 +1,8 @@
 import React from "react";
 import artright from '../../components/Project-Images/about-image.jpeg';
 import artbottom from '../../components/Project-Images/about-image-footer.jpeg';
+import artbottomleft from '../../components/Project-Images/about-image-footer-left.jpeg';
 import Image from "next/image";
-import ViewServices from "@/components/ViewServices";
 
 const About = () => {
     return (
@@ -35,19 +35,45 @@ const About = () => {
                 alt="art-right"
                 width={500}
                 height={500}
-                style={{ position: "sticky", width: "100%", height: "100%", objectFit: "cover" }}
+                style={{ position: "sticky", width: "75%", height: "75%", objectFit: "cover", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", marginLeft: "5rem" }}
               />
             </div>
           </div>         
         </main>
       
-      <footer style={{ position: "relative", backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${artbottom.src}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "100vh" }}>            
-            <div className="center" >
-              <div><h2 style={{ color: "white", textAlign: "center"}}>Get Started</h2></div>
-              <div style={{ fontSize: "1.5em", fontWeight: "100"}}>
+      <footer>
+        <div className="container-about" 
+          style={{
+            //maxWidth: `min(1200px, 100%)`,
+            //padding: `min(2rem, 5vw)`,
+            //display: "flex",
+            //justifyContent: "center",
+            //alignItems: "center",
+            display: "left"
+          }} >
+              {/* <div style={{ fontSize: "1.5em", fontWeight: "100"}}>
                 <ViewServices />
               </div>  
-            </div>                 
+              */}
+            <div>
+              <Image
+                src={artbottomleft}
+                alt="art-right"
+                width={500}
+                height={500}
+                style={{ position: "sticky", width: "75%", height: "75%", objectFit: "cover", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", marginLeft: `min(15rem, 15%)`, marginRight: "5rem" }}
+              />
+            </div>
+            <div>
+              <Image
+                src={artbottom}
+                alt="art-right"
+                width={500}
+                height={500}
+                style={{ position: "sticky", width: "75%", height: "75%", objectFit: "cover", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", marginRight: `min(15rem, 15%)`, marginLeft: "5rem" }}
+              />
+            </div>  
+            </div>               
         </footer>
       </div>
     );

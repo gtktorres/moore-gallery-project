@@ -19,7 +19,7 @@ const Navbar = () => {
   const [activeIdx, setActiveIdx] = useState(-1);
 
   return (
-    <header>
+    <header style={{ position: "sticky", top: 0, zIndex: 1000 }}>
       <nav className={`nav`} style={{ background: 'hsla(240, 11%, 93%, 1)' }}>
         <Link href={"/"}>
             <p className="logo" style={{marginLeft: "1rem", fontSize: "1.5rem"}}>Gallery Demo - Additional Text</p>
