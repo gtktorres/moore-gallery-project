@@ -20,8 +20,8 @@ const Navbar = () => {
 
   return (
     <header style={{ position: "sticky", top: 0, zIndex: 1000 }}>
-      <nav className={`nav`} style={{ background: 'hsla(240, 11%, 93%, 1)' }}>
-        <Link href={"/"}>
+      <nav className="nav" style={{ background: 'hsla(240, 11%, 93%, 1)' }}>
+        {/* <Link href={"/"}>
             <p className="logo" style={{marginLeft: "1rem", fontSize: "1.5rem"}}>Gallery Demo - Additional Text</p>
         </Link>
         <div
@@ -31,8 +31,11 @@ const Navbar = () => {
           <div></div>
           <div></div>
           <div></div>
-        </div>
-        <div className={`${navActive ? "active" : ""} nav__menu-list`}>
+        </div> */}
+        <div className={`${navActive ? "active" : ""} nav__menu-list`}
+          style={{            
+            margin: "0 auto",
+          }}>
           {MENU_LIST.map((menu, idx) => (
             <div
               onClick={() => {

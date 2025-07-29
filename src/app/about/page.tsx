@@ -49,6 +49,7 @@ const About = () => {
             //display: "flex",
             //justifyContent: "center",
             //alignItems: "center",
+            marginTop: "2.5rem",
             display: "left"
           }} >
               {/* <div style={{ fontSize: "1.5em", fontWeight: "100"}}>
