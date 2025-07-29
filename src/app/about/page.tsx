@@ -3,6 +3,8 @@ import artright from '../../components/Project-Images/about-image.jpeg';
 import artbottom from '../../components/Project-Images/about-image-footer.jpeg';
 import artbottomleft from '../../components/Project-Images/about-image-footer-left.jpeg';
 import Image from "next/image";
+import github from '../../components/Project-Images/instagram_socialnetwork_20033.png';
+import Link from "next/link";
 
 const About = () => {
     return (
@@ -49,8 +51,7 @@ const About = () => {
             //display: "flex",
             //justifyContent: "center",
             //alignItems: "center",
-            marginTop: "min(5rem, 15%)",
-            display: "left"
+            marginTop: "min(5rem, 15%)"
           }} >
               {/* <div style={{ fontSize: "1.5em", fontWeight: "100"}}>
                 <ViewServices />
@@ -62,7 +63,7 @@ const About = () => {
                 alt="art-right"
                 width={500}
                 height={500}
-                style={{ position: "sticky", width: "75%", height: "75%", objectFit: "cover", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", marginLeft: `min(15rem, 15%)`, marginRight: "5rem" }}
+                style={{ position: "sticky", width: "75%", height: "75%", objectFit: "cover", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", marginLeft: `min(15rem, 15%)`, marginRight: "5rem"}}
               />
             </div>
             <div>
@@ -74,7 +75,28 @@ const About = () => {
                 style={{ position: "sticky", width: "75%", height: "75%", objectFit: "cover", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", marginRight: `min(15rem, 15%)`, marginLeft: "5rem" }}
               />
             </div>  
-            </div>               
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+            <h2 style={{ color: "black", fontSize: "2rem" }}>
+              Moore Gallery
+              </h2>
+              <div style={{ marginTop: "2.5rem"}}>
+              <Link href="https://instagram.com/co_nnie9206">
+                <Image src={github} height="25" alt="Commerce Management Solution" />{" "}
+              </Link>
+              <Link href="https://instagram.com/co_nnie9206">
+                <Image src={github} height="25" alt="Commerce Management Solution" />{" "}
+              </Link>
+              <Link href="https://instagram.com/co_nnie9206">
+                <Image src={github} height="25" alt="Commerce Management Solution" />{" "}
+              </Link>
+              </div>                   
+          </div>
+           <div>
+            <p style={{ textAlign: "center", marginTop: "2rem", color: "black" }}>
+              © {new Date().getFullYear()} Moore Gallery. All rights reserved.
+            </p>
+          </div>              
         </footer>
       </div>
     );
