@@ -14,7 +14,7 @@ const Booking = () => {
                 </h2>
                 <br />
                 <p style={{  marginLeft: "3rem", marginTop: "2rem", marginBottom: "5rem"}}>
-                Schedule a consultation with our expert team to explore tailor-made software solutions that best fit your needs. Benefit from our in-depth industry knowledge and cutting-edge technology to drive your business forward.  
+                Schedule a consultation with us to understand your need.  
                 </p>
               </div>
             <div className='right' style={{ marginLeft: "3rem", maxWidth: "75%",position: "relative", border: "1px dashed black", borderRadius: "25px", padding: 0, margin: "4rem", boxSizing: "border-box"}}>
