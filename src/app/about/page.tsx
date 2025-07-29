@@ -3,7 +3,7 @@ import artright from '../../components/Project-Images/about-image.jpeg';
 import artbottom from '../../components/Project-Images/about-image-footer.jpeg';
 import artbottomleft from '../../components/Project-Images/about-image-footer-left.jpeg';
 import Image from "next/image";
-import github from '../../components/Project-Images/instagram_socialnetwork_20033.png';
+import instagram from '../../components/Project-Images/instagram_socialnetwork_20033.png';
 import Link from "next/link";
 
 const About = () => {
@@ -82,13 +82,13 @@ const About = () => {
               </h2>
               <div style={{ marginTop: "2.5rem"}}>
               <Link href="https://instagram.com/co_nnie9206">
-                <Image src={github} height="25" alt="Commerce Management Solution" />{" "}
+                <Image src={instagram} height="25" alt="Commerce Management Solution" />{" "}
               </Link>
               <Link href="https://instagram.com/co_nnie9206">
-                <Image src={github} height="25" alt="Commerce Management Solution" />{" "}
+                <Image src={instagram} height="25" alt="Commerce Management Solution" />{" "}
               </Link>
               <Link href="https://instagram.com/co_nnie9206">
-                <Image src={github} height="25" alt="Commerce Management Solution" />{" "}
+                <Image src={instagram} height="25" alt="Commerce Management Solution" />{" "}
               </Link>
               </div>                   
           </div>

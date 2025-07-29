@@ -10,7 +10,7 @@ const MENU_LIST = [
   { text: "About", href: "/about" },
   { text: "Contact", href: "/contact" },
   { text: "Book Now", href: "/booking" },
-  { text: "Login", href: "/" }
+  { text: "Login", href: "/login" }
 ];
 
 const Navbar = () => {
