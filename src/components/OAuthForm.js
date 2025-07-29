@@ -4,12 +4,12 @@ import React from 'react';
 import '../styles/globals.css'; // Ensure you have the correct path to your CSS file
 
 const formRef = React.createRef();
-const BookingForm = () => {
+const OAuthForm = () => {
 
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [status, setStatus] = useState('');
 
-      console.log(status);
+        console.log(status);
         const handleChange = (e) => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
         };
@@ -45,7 +45,7 @@ const BookingForm = () => {
                           borderWidth: "1px"
                         }}
                       >
-                        Name
+                        Email
                       <input
                         type="name"
                         name="Enter your name"
@@ -55,28 +55,7 @@ const BookingForm = () => {
                       />
                       </label>
                   </div>
-                <div>
-                    <label 
-                      style={{ 
-                        textAlign: "left",
-                        fontSize: "2em",
-                        color: "black",
-                        borderRadius: "5em",
-                        marginLeft: "3.5rem",
-                        borderWidth: "1px" 
-                      }}
-                    >
-                      Email
-                    <input
-                      type="email"
-                      name="Enter your email"
-                      required
-                      onChange={handleChange}
-                      border-radius="25px"
-                      style={{ padding: "1rem", alignContent: "center", color: "black", marginLeft: "3.5rem",  fontSize: "2rem", borderRadius: "25px", display: "block", width: "80%", height: "4rem", background: "hsla(240, 11%, 93%, 0.902)"  }}
-                    />
-                    </label>
-                </div>
+
                 <div>
                   <label
                     style={{ 
@@ -108,7 +87,7 @@ const BookingForm = () => {
                     }}
                     onClick={() => handleSubmit}
                   >
-                    Book Now
+                    Login
                   </button>
                   </label>
                 </div>
@@ -118,4 +97,4 @@ const BookingForm = () => {
     );
 }
     
-export default BookingForm;
+export default OAuthForm;
