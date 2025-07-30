@@ -234,13 +234,13 @@ header{
 }
 
 .center{
-  position: fixed;
+  position: absolute;
   top: 40%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   max-width: 100%;
-  max-height: 75%;
+  max-height: 50%;
 }
 
 .horizontal-center{

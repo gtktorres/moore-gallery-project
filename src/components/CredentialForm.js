@@ -32,7 +32,7 @@ const CredentialForm = () => {
 
     return(
         <form ref={formRef}>
-              <div className="center" style={{ display: 'grid', gridTemplateColumns: '1fr'}}>
+              <div className='center' >
                   <div>
                       <label
                         style={{ 
@@ -40,7 +40,6 @@ const CredentialForm = () => {
                           fontSize: "2em",
                           color: "black",
                           borderRadius: "5em",
-                          marginLeft: "3.5rem",
                           borderWidth: "1px"
                         }}
                       >
@@ -50,7 +49,7 @@ const CredentialForm = () => {
                         name="Enter your name"
                         required
                         onChange={handleChange}
-                        style={{ padding: "1rem", alignContent: "center", color: "black", marginLeft: "3.5rem", fontSize: "2rem", borderRadius: "25px", display: "block", width: "80.415%", height: "4rem",  marginBottom: "1rem", background: "hsla(240, 11%, 93%, 0.902)"}}
+                        style={{ padding: "1rem", alignContent: "center", color: "black", fontSize: "2rem", borderRadius: "25px", display: "block", width: "100%", height: "4rem",  marginBottom: "1rem", background: "hsla(240, 11%, 93%, 0.902)"}}
                       />
                       </label>
                   </div>
@@ -73,14 +72,13 @@ const CredentialForm = () => {
                       textAlign: "center",
                       color: "hsla(0,0%,100%,1)",
                       borderRadius: "5em",
-                      marginLeft: "3.5rem",
                       marginTop: "1rem",
                       marginBottom: "1rem",
                       borderWidth: "1px",
                       backgroundColor: "#0a4e9c",
                       padding: "1rem 2rem",
                       display: "block",
-                      width: "80.415%",
+                      width: "100%",
                       height: "5rem",
                       cursor: "pointer"
                     }}
@@ -110,14 +108,13 @@ const CredentialForm = () => {
                       textAlign: "center",
                       color: "hsla(0,0%,100%,1)",
                       borderRadius: "5em",
-                      marginLeft: "3.5rem",
                       marginTop: "1rem",
                       marginBottom: "1rem",
                       borderWidth: "1px",
                       backgroundColor: "#0a4e9c",
                       padding: "1rem 2rem",
                       display: "block",
-                      width: "80.415%",
+                      width: "100%",
                       height: "5rem",
                       cursor: "pointer"
                     }}
@@ -146,14 +143,13 @@ const CredentialForm = () => {
                       textAlign: "center",
                       color: "hsla(0,0%,100%,1)",
                       borderRadius: "5em",
-                      marginLeft: "3.5rem",
                       marginTop: "1rem",
                       marginBottom: "1rem",
                       borderWidth: "1px",
                       backgroundColor: "#0a4e9c",
                       padding: "1rem 2rem",
                       display: "block",
-                      width: "80.415%",
+                      width: "100%",
                       height: "5rem",
                       cursor: "pointer"
                     }}
