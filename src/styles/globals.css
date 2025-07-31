@@ -247,19 +247,23 @@ header{
 
 .shop-item{
   background-color: #f9f9f9;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 2rem; /* Rounded corners */
   padding: 3rem;
   text-align: center;
   transition: transform 0.2s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  max-width: min(100%, 30vh); /* Limit width for better layout */
 }
 
 .shop-item:hover {
   transform: scale(1.05);/* Slightly enlarge on hover */
 }
 
+.shop-item-image {
+  width: 100%; /* Make image responsive */
+  height: auto; /* Maintain aspect ratio */
+  display: block /* Ensure no extra space below the image */;
+}
 /* .container-shop{
   display: grid;
   grid-template-columns: repeat(4, 1fr);

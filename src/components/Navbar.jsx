@@ -24,7 +24,6 @@ const Navbar = () => {
   return (
     <header style={{ position: "sticky", top: 0, zIndex: 1000 }}>
       <nav className="nav" style={{ background: 'hsla(240, 11%, 93%, 1)' }}>
-        
           <div className={`${navActive ? "active" : ""} nav__menu-list`}
             style={{            
               margin: "0 auto",
