@@ -233,6 +233,55 @@ header{
   margin-left: 3rem;
 }
 
+.container-shop{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 2rem;
+  column-gap: 2rem;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 100%;
+  align-items: center; /* Center items vertically */
+  justify-items: center; /* Center items horizontally */
+}
+
+.shop-item{
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 2rem; /* Rounded corners */
+  padding: 3rem;
+  text-align: center;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: min(100%, 30vh); /* Limit width for better layout */
+}
+
+.shop-item:hover {
+  transform: scale(1.05);/* Slightly enlarge on hover */
+}
+
+/* .container-shop{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 2rem;
+  column-gap: 2rem;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.shop-item{
+  background-color: #f9f9f9;
+  border: 1rem solid #ccc;
+  border-radius: 2rem;  Rounded corners 
+  padding: 3rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.shop-item:hover {
+  transform: scale(1.05); Slightly enlarge on hover 
+} */
+
 .center{
   position: absolute;
   top: 40%;
