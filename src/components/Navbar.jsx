@@ -1,14 +1,16 @@
 "use client"
-import Link from "next/link";
+import { CartProvider } from '../components/CartContext';
+import CartIcon from '../components/CartIcon';
+import CartModal from '../components/CartModal';
+import { useCart } from '../components/CartContext';
 import React, { useState } from "react";
 import NavItem from "./NavItem";
 
 const MENU_LIST = [
   { text: "", href: "/" },
-  { text: "Shop", href: "/" },
+  { text: "Shop", href: "/shop" },
   { text: "Course", href: "/" },
   { text: "About", href: "/about" },
-  { text: "Contact", href: "/contact" },
   { text: "Book Now", href: "/booking" },
   { text: "Login", href: "/login" }
 ];
@@ -16,21 +18,12 @@ const MENU_LIST = [
 const Navbar = () => {
   const [navActive, setNavActive] = useState(null);
   const [activeIdx, setActiveIdx] = useState(-1);
+  const isCartOpen = useCart();
+
 
   return (
     <header style={{ position: "sticky", top: 0, zIndex: 1000 }}>
       <nav className="nav" style={{ background: 'hsla(240, 11%, 93%, 1)' }}>
-        {/* <Link href={"/"}>
-            <p className="logo" style={{marginLeft: "1rem", fontSize: "1.5rem"}}>Gallery Demo - Additional Text</p>
-        </Link>
-        <div
-          onClick={() => setNavActive(!navActive)}
-          className={`nav__menu-bar`}
-        >
-          <div></div>
-          <div></div>
-          <div></div>
-        </div> */}
         
           <div className={`${navActive ? "active" : ""} nav__menu-list`}
             style={{            
@@ -50,16 +43,13 @@ const Navbar = () => {
             ))}
           </div>
           <div>
-           
-          {/* // className="nav__menu-bar" onClick={() => href="/cart"}>
-          //      <NavItem
-          //       text="Cart"
-          //       href="/cart"
-          //       onClick={() => href="/cart"}
-              > */}
-          <Link href="/" style={{ textDecoration: "none", color: "black", fontSize: "1.5rem", fontWeight: "bold" }}>
-            <p className="logo" style={{ fontSize: "1.5rem", float: "right", marginRight: "min(2rem, 15%)", marginTop: "min(2rem, 15%)" }}>Cart</p>
-          </Link>
+
+            <CartProvider>
+              <div className={`main-content ${isCartOpen ? 'shifted' : ''}`}>
+                <CartIcon />
+                <CartModal />
+              </div>
+            </CartProvider>
             
           </div>
         
