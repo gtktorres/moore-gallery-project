@@ -9,10 +9,11 @@ import NavItem from "./NavItem";
 const MENU_LIST = [
   { text: "", href: "/" },
   { text: "Shop", href: "/shop" },
-  { text: "Course", href: "/" },
+  { text: "Courses", href: "/courses" },
   { text: "About", href: "/about" },
   { text: "Book Now", href: "/booking" },
-  { text: "Login", href: "/login" }
+  { text: "Login", href: "/login" },
+  { text: "Live", href: "/" }
 ];
 
 const Navbar = () => {

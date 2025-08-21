@@ -235,10 +235,8 @@ header{
 
 .container-shop{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  row-gap: 2rem;
-  column-gap: 2rem;
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   padding: 1rem;
   max-width: 100%;
   align-items: center; /* Center items vertically */
@@ -264,27 +262,33 @@ header{
   height: auto; /* Maintain aspect ratio */
   display: block /* Ensure no extra space below the image */;
 }
-/* .container-shop{
+.container-courses{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   row-gap: 2rem;
   column-gap: 2rem;
   gap: 1rem;
   padding: 1rem;
 }
 
-.shop-item{
+.courses-item{
   background-color: #f9f9f9;
   border: 1rem solid #ccc;
-  border-radius: 2rem;  Rounded corners 
+  border-radius: 2rem;  /* Rounded corners  */
   padding: 3rem;
   text-align: center;
   transition: transform 0.2s;
 }
 
-.shop-item:hover {
-  transform: scale(1.05); Slightly enlarge on hover 
-} */
+.courses-item:hover {
+  transform: scale(1.05); /*Slightly enlarge on hover */
+}
+
+.courses-item-image {
+  width: 100%; /* Make image responsive */
+  height: auto; /* Maintain aspect ratio */
+  display: block /* Ensure no extra space below the image */;
+}
 
 .center{
   position: absolute;

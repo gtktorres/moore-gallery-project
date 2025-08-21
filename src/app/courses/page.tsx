@@ -125,36 +125,22 @@ const products = [
   }
 ];
 
-const Shop = () => {
-//   const [products, setProducts] = useState([{}]);
-
-//   useEffect(() => {
-//     const fetchProducts = async () => {
-//       const response = await fetch('/api/products');
-//       const data = await response.json();
-//       setProducts(data);
-//     };
-
-//     fetchProducts();
-//   }, []);
-
+const Courses = () => {
   return (
     <div>
       <main>
-            <div className={`main-content`} style={{ marginBottom:"6rem", marginTop: "2.5rem", textAlign: "center" }}>
-                <h1 style={{fontSize:"10em"}}>Shop</h1>
-                <p style={{textAlign:"center"}}>Welcome to our shop! Here are some of our products:</p>
+        <div className={`main-content`} style={{ marginBottom:"6rem", marginTop: "2.5rem", textAlign: "center" }}>
+                <h1 style={{fontSize:"10em"}}>Courses for the Arts and Healing</h1>
+                <p style={{textAlign:"center"}}>Welcome to our Courses page! Here are some of our available tutorials:</p>
             </div>
-            <div className="container-shop">
+            <div className="container-courses">
                 {products.map((product: { id: number; name: string; price: number; description: string; image: import("next/image").StaticImageData }) => (
-                    <div className="shop-item" key={product.id} style={{ margin: "1rem", padding: "1rem"}}>
-                        <div className="shop-item-image">
+                    <div className="courses-item" key={product.id}>
+                        <div className="courses-item-image">
                         <Image
                             src={product.image}
                             alt={product.name}
-                            width={300}
-                            height={300}
-                            style={{  borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", objectFit: "cover" }}
+                            style={{ borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", objectFit: "cover" }}
                         />
                         </div>
                         <h2>{product.name}</h2>
@@ -163,9 +149,9 @@ const Shop = () => {
                     </div>
                 ))}
             </div>
-        </main>
+      </main>
     </div>
   );
-};
+}
 
-export default Shop;
+export default Courses;
