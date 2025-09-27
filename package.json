@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sendgrid/mail": "^8.1.6",
     "hellosign": "^0.0.7",
     "hellosign-embedded": "^2.12.3",
-    "next": "15.3.5",
+    "next": "^15.5.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sendgrid": "^5.2.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
