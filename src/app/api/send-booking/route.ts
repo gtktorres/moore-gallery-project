@@ -1,4 +1,5 @@
 import { ReserveKit } from 'reservekitjs';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 const reservekit_api_key = process.env.RESERVE_KIT_API_KEY;
 
