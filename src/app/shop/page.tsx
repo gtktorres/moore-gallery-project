@@ -16,6 +16,8 @@ import Art11 from '../../components/Project-Images/Connie Art/E9166E15-D139-43A5
 import Art12 from '../../components/Project-Images/Connie Art/FB285C43-8846-41D4-A87A-61DF535F1430.jpeg';
 import Art13 from '../../components/Project-Images/Connie Art/1E239547-B299-4780-9949-2BC2B4664FD9.jpeg';
 import Art014 from '../../components/Project-Images/Connie Art/8E30BA39-0E48-4722-B812-38FF2D3E7844.jpeg';
+import { useState } from 'react';
+import OrderModal from '../../components/OrderModal';
 
 const products = [
   {
@@ -126,17 +128,9 @@ const products = [
 ];
 
 const Shop = () => {
-//   const [products, setProducts] = useState([{}]);
 
-//   useEffect(() => {
-//     const fetchProducts = async () => {
-//       const response = await fetch('/api/products');
-//       const data = await response.json();
-//       setProducts(data);
-//     };
-
-//     fetchProducts();
-//   }, []);
+  const [isOrderOpen, setIsOrderOpen] = useState(false);
+  const toggleOrder = () => setIsOrderOpen(!isOrderOpen);
 
   return (
     <div>
@@ -160,6 +154,8 @@ const Shop = () => {
                         <h2>{product.name}</h2>
                         <p>{product.description}</p>
                         <p>Price: ${product.price}</p> 
+                        <button onClick={toggleOrder}>Buy Now</button>
+                        <OrderModal />
                     </div>
                 ))}
             </div>
