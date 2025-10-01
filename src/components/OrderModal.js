@@ -1,11 +1,10 @@
-// components/OrderModal.js
 import OrderPaymentForm from '../components/OrderPaymentForm';
 import { useState } from 'react';
 
 const OrderModal = () => {
     const { isOrderOpen, toggleOrder } = useState(false);
 
-    if (!isOrderOpen) return null; // Don't render if the cart is not open
+    if (!isOrderOpen) return null; // Don't render if the order modal is not open
 
     return (
         <div className={`order-modal ${isOrderOpen ? 'open' : ''}`}>
