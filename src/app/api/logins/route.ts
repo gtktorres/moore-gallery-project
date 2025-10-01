@@ -15,10 +15,10 @@ export default async function getData(req: NextApiRequest, res: NextApiResponse)
 
     if (response.ok) {
         const data = await response.json();
-        res.status(200).json(data);
+        // Handle the data
         console.log(data);
     } else {
         // Handle error (e.g., token expired)
         console.error('Access denied');
     }
-}
+};
