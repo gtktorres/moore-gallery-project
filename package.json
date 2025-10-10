@@ -1,6 +1,7 @@
 {
   "name": "moore-gallery-project",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -14,7 +15,9 @@
     "@stripe/stripe-js": "^8.0.0",
     "hellosign": "^0.0.7",
     "hellosign-embedded": "^2.12.3",
+    "match": "^1.2.11",
     "next": "^15.5.4",
+    "pk": "^1.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "reservekitjs": "^1.1.0",

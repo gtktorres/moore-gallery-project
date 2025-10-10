@@ -1,5 +1,8 @@
 import React, { createContext, useContext, useState } from 'react';
-import CartContext from '../components/CartContext';
+import CartContext from './CartContext';
+
+export const useOrder = () => useContext(OrderContext);
+export const useCart = () => useContext(CartContext);
 
 export const OrderContext = createContext();
 
@@ -8,8 +11,9 @@ export const OrderProvider = ({ children }) => {
     const [isOrderOpen, setIsOrderOpen] = useState(false);
 
     const addToOrder = (item) => {
-        setOrderItems((prevItems) => [...prevItems, item]);
+        setOrderItems((prevItems) => [...prevItems, item]);      
     };
+
     const removeFromOrder = (itemId) => {
         setOrderItems((prevItems) => prevItems.filter(item => item.id !== itemId));
     };
@@ -19,13 +23,10 @@ export const OrderProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ orderItems, addToOrder, removeFromOrder, toggleOrder, isCartOpen }}>
+        <OrderContext.Provider value={{ orderItems, addToOrder, removeFromOrder, toggleOrder, isOrderOpen }}>
             {children}
-        </CartContext.Provider>
+        </OrderContext.Provider>
     );
-
 };
 
-export const useOrder = () => useContext(OrderContext);
-
-export default useOrder
+export default OrderContext;

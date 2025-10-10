@@ -1,16 +1,27 @@
 // components/OrderModal.js
-import OrderPaymentForm from '../components/OrderPaymentForm';
-import { useState } from 'react';
+import { useOrder } from '../components/OrderContext';
 
 const OrderModal = () => {
-    const { isOrderOpen, toggleOrder } = useState(false);
+    const { orderItems, removeFromOrder, isOrderOpen, toggleOrder } = useOrder();
 
-    if (!isOrderOpen) return null; // Don't render if the cart is not open
+    if (!isOrderOpen) return null; // Don't render if the order is not open
 
     return (
         <div className={`order-modal ${isOrderOpen ? 'open' : ''}`}>
-            <h2>Place Your Order</h2>
-            <OrderPaymentForm />
+            
+            {orderItems.length === 0 ? (
+                <p>No items in your order.</p>
+                ) : (
+                    <ul>
+                        {orderItems.map((item) => (
+                            <li key={item.id}>  
+                                <h3>{item.name}</h3>
+                                <p>Price: ${item.price}</p>
+                                <button onClick={() => removeFromOrder(item.id)}>Remove</button>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
             <button onClick={toggleOrder}className="close-button">Close</button>
             
         </div>

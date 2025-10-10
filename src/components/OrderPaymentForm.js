@@ -1,16 +1,16 @@
+'use client'
 // components/PaymentForm.js
 import { useState } from 'react';
-import { useStripe } from '@stripe/react-stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
-export const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
+const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
 
 const OrderPaymentForm = () => {
     const [artItem, setArtItem] = useState('');
     const [amount, setAmount] = useState('');
     const [email, setEmail] = useState('');
-
-    const stripe = useStripe();
+    const [stripe, setStripe] = useState(false); 
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -35,30 +35,32 @@ const OrderPaymentForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="Art Item"
-                value={artItem}
-                onChange={(e) => setArtItem(e.target.value)}
-                required
-            />
-            <input
-                type="number"
-                placeholder="Amount"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                required
-            />
-            <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-            />
-            <button type="submit" disabled={!stripe}>Pay</button>
-        </form>
+        <Elements stripe={stripePromise}>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="Art Item"
+                    value={artItem}
+                    onChange={(e) => setArtItem(e.target.value)}
+                    required
+                />
+                <input
+                    type="number"
+                    placeholder="Amount"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    required
+                />
+                <input
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+                <button type="submit" disabled={!stripe}>Pay</button>
+            </form>
+        </Elements>
     );
 };
 
