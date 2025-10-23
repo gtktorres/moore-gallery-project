@@ -14,6 +14,7 @@ export default function page() {
                 alt="Video"
                 width={1000}
                 height={500}
+                unoptimized={true}
                 style={{borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)"}}
               />
           </div>

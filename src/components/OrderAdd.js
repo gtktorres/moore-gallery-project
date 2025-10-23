@@ -3,19 +3,19 @@ import React from 'react';
 import { useCart } from './CartContext';
 
 const OrderAdd = ({ item }) => {
-    
-    //console.log(item);
 
-    const { addToCart } = useCart(); //destructure addToCart from useCart
+    const { addToCart, cartItems } = useCart(); //destructure addToCart from useCart
 
     const handleAddToCart = () => {
-        addToCart(item); // Call addToCart with the item prop
+        addToCart(item);
+        console.log('Added to cart:', item);
+        console.log('Current cart items:', cartItems);
     };
 
     return (
         
         <div className="order-add-container">
-            <button style={{ cursor: 'pointer' }} onClick = {() => handleAddToCart} className="add-to-cart-button"> Buy Now </button>
+            <button style={{ cursor: 'pointer' }} onClick = {handleAddToCart} className="add-to-cart-button"> Buy Now </button>
         </div>       
 
     );

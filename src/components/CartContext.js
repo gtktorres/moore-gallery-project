@@ -8,19 +8,34 @@ export const CartProvider = ({ children }) => {
     const [isCartOpen, setIsCartOpen] = useState(false);
 
     const addToCart = (item) => {
-        setCartItems((prevItems) => [...prevItems, item]);
+        setCartItems(prevItems => [...prevItems, item]); // This creates a new array with the new item added
     };
 
     const removeFromCart = (itemId) => {
-        setCartItems((prevItems) => prevItems.filter(item => item.id !== itemId));
+        setCartItems((cartItems) => cartItems.filter(item => item.id !== itemId));
     };
 
     const toggleCart = () => {
+
+        console.log('Cart items:', cartItems);
         setIsCartOpen(!isCartOpen);
     };
 
+    const mapCartItems = () => {
+        cartItems.map((item) => 
+            (
+                <div key={item.id}>
+                    <h3>{item.name}</h3>
+                    <p>Price: ${item.price}</p>
+                    <button onClick={() => removeFromCart(item.id)}>
+                        Remove
+                    </button>
+                </div>
+            ));
+    };
+
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, toggleCart, isCartOpen }}>
+        <CartContext.Provider value={{ cartItems, mapCartItems,addToCart, removeFromCart, toggleCart, isCartOpen }}>
             {children}
         </CartContext.Provider>
     );

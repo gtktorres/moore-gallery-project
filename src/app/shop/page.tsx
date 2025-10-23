@@ -1,5 +1,5 @@
-"use client";
 //import { useEffect, useState } from 'react';
+"use client";
 import Image from 'next/image';
 import Art0 from '../../components/Project-Images/Connie Art/1E239547-B299-4780-9949-2BC2B4664FD9.jpeg';
 import Art1 from '../../components/Project-Images/Connie Art/8E30BA39-0E48-4722-B812-38FF2D3E7844.jpeg';
@@ -16,11 +16,7 @@ import Art11 from '../../components/Project-Images/Connie Art/E9166E15-D139-43A5
 import Art12 from '../../components/Project-Images/Connie Art/FB285C43-8846-41D4-A87A-61DF535F1430.jpeg';
 import Art13 from '../../components/Project-Images/Connie Art/1E239547-B299-4780-9949-2BC2B4664FD9.jpeg';
 import Art014 from '../../components/Project-Images/Connie Art/8E30BA39-0E48-4722-B812-38FF2D3E7844.jpeg';
-import OrderModal from '../../components/OrderModal';
-import OrderIcon from '@/components/OrderIcon';
 import OrderAdd from '@/components/OrderAdd';
-import { OrderProvider, useOrder } from '@/components/OrderContext';
-import { CartProvider } from '@/components/CartContext';
 
 const products = [
   {
@@ -131,7 +127,6 @@ const products = [
 ];
 
 const Shop = () => {
-  const isOrderOpen  = useOrder();
   return (
     <div>
       <main>
@@ -141,27 +136,23 @@ const Shop = () => {
             </div>
             <div className="container-shop">
                 {products.map((product: { id: number; name: string; price: number; description: string; image: import("next/image").StaticImageData }) => (
-                    <div className="shop-item" key={product.id}>
+                  <div className="shop-item" key={product.id}>
                         <div className="shop-item-image">
                         <Image
                             src={product.image}
                             alt={product.name}
                             width={300}
                             height={300}
+                            unoptimized={true}
                             style={{ borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", objectFit: "cover" }}
                         />
                         </div>
                         <h2>{product.name}</h2>
                         <p>{product.description}</p>
                         <p>Price: ${product.price}</p> 
-                          <OrderProvider>                       
-                            <div id="order-modal-root" className={`main-content ${isOrderOpen ? 'shifted' : ''}`}>
-                              <CartProvider><OrderAdd item={product} /></CartProvider>
-                              <OrderIcon />
-                              <OrderModal />
-                            </div>
-                          </OrderProvider>                       
-                    </div>
+                                                
+                        <OrderAdd item={product} />                    
+                  </div>
                 ))}
             </div>
         </main>
