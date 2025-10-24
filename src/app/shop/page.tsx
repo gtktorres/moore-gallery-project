@@ -24,105 +24,120 @@ const products = [
     "image": Art0,
     "name": "Product 1",
     "price": 29.99,
-    "description": "This is a great product."
+    "description": "This is a great product.",
+    "quantity": 0
   },
   {
     "id": 2,
     "image": Art1,
     "name": "Product 2",
     "price": 49.99,
-    "description": "This product is even better!"
+    "description": "This product is even better!",
+    "quantity": 0
   },
   {
     "id": 3,
     "image": Art2,
     "name": "Product 3",
     "price": 19.99,
-    "description": "An affordable option."
+    "description": "An affordable option.",
+    "quantity": 0
   },
   {
     "id": 4,
     "image": Art3,
     "name": "Product 4",
     "price": 29.99,
-    "description": "An affordable option."
+    "description": "An affordable option.",
+    "quantity": 0
   },
   {
     "id": 5,
     "image": Art4,
     "name": "Product 5",
     "price": 19.99,
-    "description": "This product is even better!"
+    "description": "This product is even better!",
+    "quantity": 0
   },
   {
     "id": 6,
     "image": Art5,
     "name": "Product 6",
     "price": 49.99,
-    "description": "An affordable option."
+    "description": "An affordable option.",
+    "quantity": 0
   },
   {
     "id": 7,
     "image": Art6,
     "name": "Product 7",
     "price": 19.99,
-    "description": "This is a great product."
+    "description": "This is a great product.",
+    "quantity": 0
   },
   {
     "id": 8,
     "image": Art7,
     "name": "Product 8",
     "price": 29.99,
-    "description": "This is a great product."
+    "description": "This is a great product.",
+    "quantity": 0
   },
   {
     "id": 9,
     "image": Art8,
     "name": "Product 9",
     "price": 49.99,
-    "description": "This product is even better!"
+    "description": "This product is even better!",
+    "quantity": 0
   },
   {
     "id": 10,
     "image": Art9,
     "name": "Product 10",
     "price": 19.99,
-    "description": "An affordable option."
+    "description": "An affordable option.",
+    "quantity": 0
   },
   {
     "id": 11,
     "image": Art10,
     "name": "Product 11",
     "price": 29.99,
-    "description": "An affordable option."
+    "description": "An affordable option.",
+    "quantity": 0
   },
   {
     "id": 12,
     "image": Art11,
     "name": "Product 12",
     "price": 19.99,
-    "description": "This product is even better!"
+    "description": "This product is even better!",
+    "quantity": 0
   },
   {
     "id": 13,
     "image": Art12,
     "name": "Product 13",
     "price": 49.99,
-    "description": "An affordable option."
+    "description": "An affordable option.",
+    "quantity": 0
   },
   {
     "id": 14,
     "image": Art13,
     "name": "Product 14",
     "price": 19.99,
-    "description": "This is a great product."
+    "description": "This is a great product.",
+    "quantity": 0
   },
   {
     "id": 15,
     "image": Art014,
     "name": "Product 15",
     "price": 29.99,
-    "description": "This is a great product."
+    "description": "This is a great product.",
+    "quantity": 0
   }
 ];
 
@@ -149,8 +164,7 @@ const Shop = () => {
                         </div>
                         <h2>{product.name}</h2>
                         <p>{product.description}</p>
-                        <p>Price: ${product.price}</p> 
-                                                
+                        <p>Price: ${product.price}</p>                      
                         <OrderAdd item={product} />                    
                   </div>
                 ))}
