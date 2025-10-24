@@ -21,6 +21,10 @@ export const CartProvider = ({ children }) => {
         setIsCartOpen(!isCartOpen);
     };
 
+    const subtotal = cartItems.reduce((total, item) => total + item.price, 0);
+    const quantityInStorage = cartItems.length;
+    const quantityInCart = cartItems.length;
+
     const mapCartItems = () => {
         cartItems.map((item) => 
             (
@@ -35,7 +39,7 @@ export const CartProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cartItems, mapCartItems,addToCart, removeFromCart, toggleCart, isCartOpen }}>
+        <CartContext.Provider value={{ cartItems, subtotal, quantityInStorage, quantityInCart, mapCartItems,addToCart, removeFromCart, toggleCart, isCartOpen }}>
             {children}
         </CartContext.Provider>
     );
