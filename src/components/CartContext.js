@@ -9,48 +9,47 @@ export const CartProvider = ({ children }) => {
     const [isCartOpen, setIsCartOpen] = useState(false);
 
     const addToCart = (item) => {
-        item.quantity++;
-        if(!cartItems.find(cartItem => cartItem.id === item.id)){
-            setCartItems(prevItems => [...prevItems, item]);
-        } // This creates a new array with the new item added
-        //setCartItems([cartItems]);
-    };
-
-    const removeFromCart = (itemId) => {
-        // Update items immutably: decrement quantity for matching item, then remove any with quantity <= 0
         setCartItems(prevItems => {
-            const updated = prevItems
-                .map(item => item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item)
-                .filter(item => item.quantity > 0);
-            return updated;
+            const exists = prevItems.find(ci => ci.id === item.id);
+            if (exists) {
+                return prevItems.map(ci =>
+                    ci.id === item.id ? { ...ci, quantity: (ci.quantity || 1) + 1 } : ci
+                );
+            } else {
+                return [...prevItems, { ...item, quantity: item.quantity || 1 }];
+            }
         });
     };
 
-    const toggleCart = () => {
-
-        console.log('Cart items:', cartItems);
-        setIsCartOpen(!isCartOpen);
+    const removeFromCart = (itemId) => {
+        setCartItems(prevItems => {
+            const updated = prevItems
+                .map(item => item.id === itemId ? { ...item, quantity: (item.quantity || 1) - 1 } : item)
+                .filter(item => item.quantity > 0);
+            console.log('Updated cart items:', updated);
+            return updated;
+        });
+        console.log('Removed item with id:', itemId);
     };
 
-    const subtotal = cartItems.reduce((total, item) => total + item.price, 0);
+    const toggleCart = () => {
+        console.log('Cart items:', cartItems);
+        setIsCartOpen(prev => !prev);
+    };
+
+    const subtotal = cartItems.reduce((total, item) => total + (item.price || 0) * (item.quantity || 1), 0);
 
     const mapCartItems = () => {
-        cartItems.map((item) => 
-            cartItems.Has(item.id)
-            ?
-            (cartItems[item].quantityInCart += 1)
-            :
-            (
-                <div key={item.id}>
-                    <h3>{item.name}</h3>
-                    <p>Price: ${item.price}</p>
-                    <button onClick={() => removeFromCart(item.id)}>
-                        Remove
-                    </button>
-                </div>
-            )
-            
-        );
+        return cartItems.map((item) => (
+            <div key={item.id}>
+                <h3>{item.name}</h3>
+                <p>Price: ${item.price}</p>
+                <p>Quantity: {item.quantity}</p>
+                <button onClick={() => removeFromCart(item.id)}>
+                    Remove
+                </button>
+            </div>
+        ));
     };
 
     return (

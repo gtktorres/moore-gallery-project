@@ -23,7 +23,7 @@ const CartModal = () => {
                                     <Image src={item.image} alt={item.name} width={100}></Image>
                                     <h3>{item.name}</h3>
                                     <p>Price: ${item.price}</p>
-                                    <p>Quantity in Cart: {item.quantity}</p>  
+                                    <p>{item.quantity}</p>  
                                     <button onClick={() => removeFromCart(item.id)}>
                                         Remove
                                     </button>
