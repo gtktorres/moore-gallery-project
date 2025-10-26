@@ -1,6 +1,7 @@
 // components/CartModal.js
 import { useCart } from './CartContext';
 import Image from 'next/image';
+import handleCheckout from './StripeCheckout';
 
 const CartModal = () => {
     const { cartItems, isCartOpen, removeFromCart, subtotal } = useCart();
@@ -31,7 +32,7 @@ const CartModal = () => {
                             )
                         )}
                     
-                        <button className="checkout-button">Proceed to Checkout</button>
+                        <button className="checkout-button" onClick={handleCheckout}>Proceed to Checkout</button>
                     </div>
                 )
             }
