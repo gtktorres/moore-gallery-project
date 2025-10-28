@@ -18,7 +18,7 @@ import Art13 from '../../components/Project-Images/Connie Art/1E239547-B299-4780
 import Art014 from '../../components/Project-Images/Connie Art/8E30BA39-0E48-4722-B812-38FF2D3E7844.jpeg';
 import OrderAdd from '@/components/OrderAdd';
 
-const products = [
+const products = [    //TODO: Create api route to fetch products from database
   {
     "id": 1,
     "image": Art0,

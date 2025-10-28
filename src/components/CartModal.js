@@ -21,7 +21,7 @@ const CartModal = () => {
                         {cartItems.map((item) => 
                             (
                                 <div key={item.id}>
-                                    <Image src={item.image} alt={item.name} width={100}></Image>
+                                    <Image src={item?.image} alt={item.name} width={100}></Image>
                                     <h3>{item.name}</h3>
                                     <p>Price: ${item.price}</p>
                                     <p>{item.quantity}</p>  
