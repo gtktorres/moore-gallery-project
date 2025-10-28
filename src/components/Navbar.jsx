@@ -1,5 +1,4 @@
 "use client"
-import { CartProvider } from '../components/CartContext';
 import CartIcon from '../components/CartIcon';
 import CartModal from '../components/CartModal';
 import { useCart } from '../components/CartContext';
@@ -7,9 +6,9 @@ import React, { useState } from "react";
 import NavItem from "./NavItem";
 
 const MENU_LIST = [
-  { text: "", href: "/" },
+  { text: "Live", href: "/" },
   { text: "Shop", href: "/shop" },
-  { text: "Courses", href: "/courses" },
+  { text: "Tutorials", href: "/" },
   { text: "About", href: "/about" },
   { text: "Book Now", href: "/booking" },
   { text: "Login", href: "/login" },
@@ -19,7 +18,7 @@ const MENU_LIST = [
 const Navbar = () => {
   const [navActive, setNavActive] = useState(null);
   const [activeIdx, setActiveIdx] = useState(-1);
-  const isCartOpen = useCart();
+  const { isCartOpen } = useCart();
 
 
   return (
@@ -44,12 +43,12 @@ const Navbar = () => {
           </div>
           <div>
 
-            <CartProvider>
+            
               <div className={`main-content ${isCartOpen ? 'shifted' : ''}`}>
                 <CartIcon />
                 <CartModal />
               </div>
-            </CartProvider>
+            
             
           </div>
         

@@ -1,6 +1,7 @@
 {
   "name": "moore-gallery-project",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -10,11 +11,16 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.6",
+    "@stripe/react-stripe-js": "^5.0.0",
+    "@stripe/stripe-js": "^8.1.0",
     "hellosign": "^0.0.7",
     "hellosign-embedded": "^2.12.3",
-    "next": "^15.5.4",
+    "match": "^1.2.11",
+    "next": "^15.5.6",
+    "pk": "^1.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.9.4",
     "reservekitjs": "^1.1.0",
     "sendgrid": "^5.2.3",
     "stripe": "^18.5.0"

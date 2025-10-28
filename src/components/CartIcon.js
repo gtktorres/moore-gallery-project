@@ -2,11 +2,11 @@
 import { useCart } from '../components/CartContext';
 
 const CartIcon = () => {
-    const { cartItems, toggleCart } = useCart();
+    const { toggleCart } = useCart();
 
     return (
         <div onClick={toggleCart} className="cart-icon">
-            🛒 <span>{cartItems.length}</span>
+            🛒 
         </div>
     );
 };

@@ -1,6 +1,8 @@
 import dynamic from "next/dynamic";
 import '../styles/globals.css'
 import '../styles/client.css'
+import { CartProvider } from "@/components/CartContext";
+import React from "react";
 
 const Navbar = dynamic(
   () => {
@@ -23,13 +25,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      
-      <body>
-      < Navbar /> 
-      {children}
-      </body>
-
-    </html>
+      <html lang="en">
+          <CartProvider>        
+            <body>
+                < Navbar /> 
+                {children}
+            </body>
+          </CartProvider>
+      </html>
   )
 }
