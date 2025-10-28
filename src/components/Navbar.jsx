@@ -6,9 +6,9 @@ import React, { useState } from "react";
 import NavItem from "./NavItem";
 
 const MENU_LIST = [
-  { text: "", href: "/" },
+  { text: "Live", href: "/" },
   { text: "Shop", href: "/shop" },
-  { text: "Course", href: "/" },
+  { text: "Tutorials", href: "/" },
   { text: "About", href: "/about" },
   { text: "Book Now", href: "/booking" },
   { text: "Login", href: "/login" }

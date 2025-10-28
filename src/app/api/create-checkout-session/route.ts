@@ -24,8 +24,8 @@ export async function POST() {
       quantity: 1,
     }],
     // ?session_id={CHECKOUT_SESSION_ID} means the redirect will have the session ID set as a query param
-    success_url: `${domainURL}/success.html?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${domainURL}/canceled.html`,
+    success_url: `${domainURL}/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${domainURL}/canceled`,
     // automatic_tax: { enabled: true }
   });
 
