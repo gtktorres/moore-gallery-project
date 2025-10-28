@@ -686,3 +686,51 @@ input[type='number']::placeholder {
 .sr-combo-inputs-row:not(:first-of-type) .sr-input {
   border-radius: 0 0 var(--radius) var(--radius);
 }
+
+/* styles/globals.css or a CSS module */
+
+.content-container {
+  /* Basic container styling */
+  width: 100%;
+  max-width: 1200px; /* Adjust as needed */
+  margin: 0 auto;
+}
+
+.slides-container {
+  display: flex;
+  justify-content: space-around; /* Distributes space evenly */
+  gap: 20px; /* Space between slides */
+}
+
+.slide {
+  flex: 1; /* Allows slides to grow and shrink evenly */
+  padding: 20px;
+  text-align: center;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  margin-top: 5rem;
+  overflow-y: hidden;
+}
+
+.live-stream-embed {
+  /* Styles for your live stream embed */
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Common aspect ratio for video */
+}
+
+.live-stream-embed iframe {
+  width: 100%;
+  height: 100%;
+}
+.embla {
+  overflow: hidden; /* Hides the scrollbar */
+}
+
+.embla__container {
+  display: flex; /* Stacks the slides horizontally */
+}
+
+.embla__slide {
+  flex: 0 0 100%; /* Each slide takes up 100% of the viewport width */
+  min-width: 0; /* Prevents overflow issues */
+}
