@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   appInfo: { // For sample support and debugging, not required for production:
     name: "stripe-samples/accept-a-payment/prebuilt-checkout-page",
     version: "0.0.1",
-    url: "https://github.com/stripe-samples"
+    url: process.env.STRIPE_URL as string
   }
 });
 
