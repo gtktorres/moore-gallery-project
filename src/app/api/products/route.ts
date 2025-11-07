@@ -1,12 +1,13 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse} from 'next';
 
-export default async function getData(req: NextApiRequest, res: NextApiResponse){
+export default async function getData(req: NextApiRequest){
+    const res = {} as NextApiResponse;
+
     if(req.method !== 'GET') {
         return res.status(405).json({ message: 'Method Not Allowed' });
     }
-    res.status(200).json({ message: 'This is protected data' });
     const token = localStorage.getItem('token');
-    const response = await fetch('http://localhost:5000/api/protected', {
+    const response = await fetch('https://localhost:7093', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -17,6 +18,7 @@ export default async function getData(req: NextApiRequest, res: NextApiResponse)
         const data = await response.json();
         res.status(200).json(data);
         console.log(data);
+        return data;
     } else {
         // Handle error (e.g., token expired)
         console.error('Access denied');
