@@ -15,12 +15,15 @@ import Image from 'next/image';
 // import Art13 from '../../components/Project-Images/Connie Art/1E239547-B299-4780-9949-2BC2B4664FD9.jpeg';
 // import Art014 from '../../components/Project-Images/Connie Art/8E30BA39-0E48-4722-B812-38FF2D3E7844.jpeg';
 import OrderAdd from '@/components/OrderAdd';
-import getData from '../api/products/route';
-import { NextApiRequest } from 'next';
+import POST from '../api/products/route';
+import { NextRequest } from 'next/server';
+import { StaticImageData } from 'next/image';
 
 const Shop = async () => {
-  const req = {method: 'GET'} as NextApiRequest;
-  const products = await getData(req);
+  const req = {method: 'POST'} as NextRequest;
+  const response = await POST(req);
+  const data = await response?.json();
+  const products = Array.isArray(data) ? data : data.products || [];
   return (
     <div>
       <main>
@@ -29,7 +32,7 @@ const Shop = async () => {
                 <p style={{textAlign:"center"}}>Welcome to our shop! Here are some of our products:</p>
             </div>
             <div className="container-shop">
-                {products.map((product: { id: number; name: string; price: number; description: string; image: import("next/image").StaticImageData }) => (
+                {products.map((product: { id: number; name: string; description: string; price: number; deals: string; image: StaticImageData }) => (
                   <div className="shop-item" key={product.id}>
                         <div className="shop-item-image">
                         <Image
