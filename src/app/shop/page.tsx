@@ -15,15 +15,17 @@ import Image from 'next/image';
 // import Art13 from '../../components/Project-Images/Connie Art/1E239547-B299-4780-9949-2BC2B4664FD9.jpeg';
 // import Art014 from '../../components/Project-Images/Connie Art/8E30BA39-0E48-4722-B812-38FF2D3E7844.jpeg';
 import OrderAdd from '@/components/OrderAdd';
-import POST from '../api/products/route';
 import { NextRequest } from 'next/server';
 import { StaticImageData } from 'next/image';
+import GET from '../api/products/route';
+import aboutImage from '../../components/Project-Images/about-image.jpeg';
 
 const Shop = async () => {
-  const req = {method: 'POST'} as NextRequest;
-  const response = await POST(req);
+  const req = {method: 'GET'} as NextRequest;
+  const response = await GET(req);
   const data = await response?.json();
   const products = Array.isArray(data) ? data : data.products || [];
+  console.log('Products data:', products);
   return (
     <div>
       <main>
@@ -36,7 +38,7 @@ const Shop = async () => {
                   <div className="shop-item" key={product.id}>
                         <div className="shop-item-image">
                         <Image
-                            src={product.image}
+                            src={product.image || aboutImage} // Fallback to a placeholder image if product image is missing
                             alt={product.name}
                             width={300}
                             height={300}
