@@ -14,18 +14,41 @@ import Image from 'next/image';
 // import Art12 from '../../components/Project-Images/Connie Art/FB285C43-8846-41D4-A87A-61DF535F1430.jpeg';
 // import Art13 from '../../components/Project-Images/Connie Art/1E239547-B299-4780-9949-2BC2B4664FD9.jpeg';
 // import Art014 from '../../components/Project-Images/Connie Art/8E30BA39-0E48-4722-B812-38FF2D3E7844.jpeg';
-import OrderAdd from '@/components/OrderAdd';
-import { NextRequest } from 'next/server';
-import { StaticImageData } from 'next/image';
+import OrderAdd from '@/components/OrderAdd'; 
 import GET from '../api/products/route';
 import aboutImage from '../../components/Project-Images/about-image.jpeg';
+import IProduct from '@/components/IProduct';
 
-const Shop = async () => {
-  const req = {method: 'GET'} as NextRequest;
-  const response = await GET(req);
-  const data = await response?.json();
-  const products = Array.isArray(data) ? data : data.products || [];
-  console.log('Products data:', products);
+const Shop = async () => { 
+
+
+  const res = await GET();
+  const products = await res.json() as IProduct[]
+  
+  const mapper = () => {
+    return products.map((product: IProduct) => (
+      
+      <div className="shop-item" key={product.id}>
+            <div className="shop-item-image"> 
+            <Image
+                src={ product.image || aboutImage}
+                alt='Product Image'
+                width={300}
+                height={300}
+                unoptimized={true}
+                style={{ borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", objectFit: "cover" }}
+            />
+            </div>
+            <h2>{product.name}</h2>
+            <p>{product.description}</p>
+            <p>Price: ${product.price}</p>
+            <OrderAdd item={product} />
+      </div>
+    ))
+  };
+
+  const populate = () => mapper();
+
   return (
     <div>
       <main>
@@ -33,25 +56,8 @@ const Shop = async () => {
                 <h1 style={{fontSize:"10em"}}>Shop</h1>
                 <p style={{textAlign:"center"}}>Welcome to our shop! Here are some of our products:</p>
             </div>
-            <div className="container-shop">
-                {products.map((product: { id: number; name: string; description: string; price: number; deals: string; image: StaticImageData }) => (
-                  <div className="shop-item" key={product.id}>
-                        <div className="shop-item-image">
-                        <Image
-                            src={product.image || aboutImage} // Fallback to a placeholder image if product image is missing
-                            alt={product.name}
-                            width={300}
-                            height={300}
-                            unoptimized={true}
-                            style={{ borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", objectFit: "cover" }}
-                        />
-                        </div>
-                        <h2>{product.name}</h2>
-                        <p>{product.description}</p>
-                        <p>Price: ${product.price}</p>                      
-                        <OrderAdd item={product} />                    
-                  </div>
-                ))}
+            <div className="container-shop" >
+              {populate()}
             </div>
         </main>
     </div>
