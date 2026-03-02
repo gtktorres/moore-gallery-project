@@ -1,22 +1,23 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { redirect } from "next/dist/server/api-utils";
 
-export default async function getData(req: NextApiRequest, res: NextApiResponse){
-    if(req.method !== 'GET') {
-        return res.status(405).json({ message: 'Method Not Allowed' });
-    }
-    res.status(200).json({ message: 'This is protected data' });
+export default async function Login(email: string, password: string) {
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
+
+    
     const token = localStorage.getItem('token');
-    const response = await fetch('http://localhost:5000/api/protected', {
-        method: 'GET',
+    const response = await fetch('http://localhost:7093/api/Logins/login', {
+        method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,
         },
+        body: formData
     });
 
     if (response.ok) {
-        const data = await response.json();
-        // Handle the data
-        console.log(data);
+        redirect('/account');
+        
     } else {
         // Handle error (e.g., token expired)
         console.error('Access denied');

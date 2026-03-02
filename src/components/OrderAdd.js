@@ -1,9 +1,9 @@
+"use client";
 // components/OrderAdd.js
 import React from 'react';
 import { useCart } from './CartContext';
 
 const OrderAdd = ({ item }) => {
-
     const { addToCart, cartItems } = useCart(); //destructure addToCart from useCart
 
     const handleAddToCart = () => {
