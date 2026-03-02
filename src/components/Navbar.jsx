@@ -6,11 +6,10 @@ import React, { useState } from "react";
 import NavItem from "./NavItem";
 
 const MENU_LIST = [
-  { text: "Live", href: "/" },
+  { text: "Home", href: "/" },
   { text: "Shop", href: "/shop" },
   { text: "Tutorials", href: "/tutorials" },
   { text: "About", href: "/about" },
-  { text: "Book Now", href: "/booking" },
   { text: "Login", href: "/login" }
 ];
 
@@ -21,8 +20,8 @@ const Navbar = () => {
 
 
   return (
-    <header style={{ position: "sticky", top: 0, zIndex: 1000 }}>
-      <nav className="nav" style={{ background: 'hsla(240, 11%, 93%, 1)' }}>
+    <header style={{ position: "sticky"}}>
+      <nav className="nav" style={{ maxHeight: '20%', background: 'hsla(240, 11%, 93%, 1)' }}>
           <div className={`${navActive ? "active" : ""} nav__menu-list`}
             style={{            
               margin: "0 auto",

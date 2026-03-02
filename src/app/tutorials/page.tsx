@@ -33,14 +33,14 @@ const Tutorials = () => {
   return (
     <div>
         <main>
-            <div className={`main-content`} style={{ margin:"6rem", marginTop: "2.5rem", textAlign: "center" }}>
+            <div className={`main-content`} style={{ margin: "2rem", textAlign: "center" }}>
                 <h1 style={{color:"hsla(240, 69%, 46%, 0.90)"}}>More Tutorials Coming Soon!</h1>
             </div>
             <div className="container-tutorials" style={{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column", marginBottom:"6rem"}}>
                 {tutorials.map((tutorial: {id: number; name: string; price: number; description: string; image: import("next/image").StaticImageData }) => (
                     <div className="tutorial-item" key={tutorial.id}>
                           
-                            <div className="container-tutorial" style={{margin:"1rem", padding:"1rem", position:"relative", width:"90rem", height:"8rem", borderRadius:"10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", overflow:"hidden"}}>
+                            <div className="container-tutorial" style={{margin:"1rem", padding:"1rem", position:"relative", width:"30rem", height:"8rem", borderRadius:"10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)"}}>
                                 <Image
                                     src={tutorial.image}
                                     alt={tutorial.name}
@@ -48,7 +48,7 @@ const Tutorials = () => {
                                     fill={true}
                                     style={{ borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", objectFit: "cover" }}
                                 />
-                                <div className="tutorial-details" style={{position:"relative", zIndex:2, backgroundColor:"rgba(255, 255, 255, 0.8)", padding:"1rem", borderRadius:"10px", marginTop:"0.1rem", textAlign:"center"}}>
+                                <div className="tutorial-details" style={{position:"relative", zIndex:2, color:'black', fontWeight: 'bold', backgroundColor:"rgba(255, 255, 255, 0.22)", padding:"1rem", borderRadius:"10px", marginTop:"0.1rem", textAlign:"center"}}>
                                     {tutorial.description}
                                     <br />
                                     Price: ${tutorial.price}

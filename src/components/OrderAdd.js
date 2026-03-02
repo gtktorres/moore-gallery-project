@@ -15,7 +15,14 @@ const OrderAdd = ({ item }) => {
     return (
         
         <div className="order-add-container">
-            <button style={{ cursor: 'pointer' }} onClick = {handleAddToCart} className="add-to-cart-button"> Buy Now </button>
+            <button style={{
+                    backgroundColor: "#0a4e9c",
+                    borderColor: "#0a4e9c",
+                    borderRadius: "1rem",
+                    marginTop: ".5rem",
+                    height: "2rem", 
+                    cursor: "pointer",
+                  }} onClick = {handleAddToCart} className="add-to-cart-button"> Buy Now </button>
         </div>       
 
     );
