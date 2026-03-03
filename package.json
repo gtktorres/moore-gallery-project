@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.39.0",
     "@sendgrid/mail": "^8.1.6",
     "@stripe/react-stripe-js": "^5.0.0",
     "@stripe/stripe-js": "^8.1.0",
@@ -20,7 +21,7 @@
     "hellosign-embedded": "^2.12.3",
     "hls.js": "^1.6.13",
     "match": "^1.2.11",
-    "next": "^16.1.7",
+    "next": "latest",
     "pk": "^1.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

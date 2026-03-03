@@ -15,7 +15,7 @@ import Image from 'next/image';
 // import Art13 from '../../components/Project-Images/Connie Art/1E239547-B299-4780-9949-2BC2B4664FD9.jpeg';
 // import Art014 from '../../components/Project-Images/Connie Art/8E30BA39-0E48-4722-B812-38FF2D3E7844.jpeg';
 import OrderAdd from '@/components/OrderAdd'; 
-import GET from '../api/products/route';
+import { GET } from '../api/products/route';
 import aboutImage from '../../components/Project-Images/about-image.jpeg';
 import IProduct from '@/components/IProduct';
 

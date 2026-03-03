@@ -3,6 +3,15 @@ import '../styles/globals.css'
 import '../styles/client.css'
 import { CartProvider } from "@/components/CartContext";
 import React from "react";
+import { 
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+ } from "@clerk/nextjs";
+
 
 const Navbar = dynamic(
   () => {
@@ -26,12 +35,12 @@ export default function RootLayout({
 }) {
   return (
       <html lang="en">
-          <CartProvider>        
+          <CartProvider><ClerkProvider>      
             <body>
                 < Navbar /> 
                 {children}
             </body>
-          </CartProvider>
+          </ClerkProvider></CartProvider>
       </html>
   )
 }

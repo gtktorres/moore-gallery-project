@@ -4,13 +4,14 @@ import CartModal from '../components/CartModal';
 import { useCart } from '../components/CartContext';
 import React, { useState } from "react";
 import NavItem from "./NavItem";
+import '@clerk/nextjs';
 
 const MENU_LIST = [
   { text: "Home", href: "/" },
   { text: "Shop", href: "/shop" },
   { text: "Tutorials", href: "/tutorials" },
   { text: "About", href: "/about" },
-  { text: "Login", href: "/login" }
+  { text: "Login", href: "/sign-in" }
 ];
 
 const Navbar = () => {

@@ -2,98 +2,74 @@
 import { useUser } from "@clerk/nextjs";
 import { useState } from "react";
 
-export default function AccountPage() {
+export default function Account() {
 
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [uploading, setUploading] = useState(false);
-  const { isLoaded, isSignedIn, user } = useUser();
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+    const { isLoaded, isSignedIn, user } = useUser();
 
-  if (!isLoaded || !isSignedIn) {
-    return <div>Loading...</div>;
-  }
+    if (!isLoaded) {
+        return <div>Loading...</div>
+    } if (!isSignedIn) {
+        return <div>Please sign in to view your account.</div>;
+    }
 
-  // Access the email address
-  const userEmail = user.primaryEmailAddress?.emailAddress;
+    // Access the email address
+    const userEmail = user.primaryEmailAddress?.emailAddress;
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files) return;
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (!e.target.files) return;
 
-    const file = e.target.files[0];
-    setSelectedFile(file);
-    setPreviewUrl(URL.createObjectURL(file));
-  };
-
-    const handleUpload = async () => {
-        if (!selectedFile) return;
-
-        setUploading(true);
-
-        const formData = new FormData();
-        formData.append("file", selectedFile);
-        
-        try {
-
-            const response = await fetch(
-                "https://localhost:7093/api/Buyers/upload",
-                {
-                    method: "POST",
-                    body: formData,
-                    credentials: "include", // if using cookies
-                    headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token") || ""}`,
-                    },
-                }
-            );
-
-            if (!response.ok) {
-                throw new Error("Upload failed");
-            }
-
-                alert("Image uploaded successfully!");
-        } catch (error) {
-            console.error(error);
-            alert("Upload failed");
-        } finally {
-            setUploading(false);
+        const file = e.target.files[0];
+        if(file != null) {
+            setSelectedFile(file);
+            setPreviewUrl(URL.createObjectURL(file));
         }
-    };
+    }; 
 
     const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/login";
+        localStorage.removeItem("token");
+        window.location.href = "/login";
     };
 
     return (
         <div style={styles.container}>
-        <h1>Account</h1>
+                <h1>Account</h1>
+                <div style={styles.card}>
+                    <h2>User Info</h2>
+                    <p><strong>Email:</strong> {userEmail}</p>
+                    <div style={styles.card}>
+                    <h2>Profile Image</h2> 
+                    {previewUrl && (
+                    <img
+                        src={previewUrl}
+                        alt="Preview"
+                        style={{ width: 150, height: 150, borderRadius: "50%" }}
+                    />
+                    )}
+                </div>
 
-        <div style={styles.card}>
-            <h2>User Info</h2>
-            <p><strong>Email:</strong> {userEmail}</p>
-        </div>
-
-        <div style={styles.card}>
-            <h2>Profile Image</h2>
-
-            {previewUrl && (
-            <img
-                src={previewUrl}
-                alt="Preview"
-                style={{ width: 150, height: 150, borderRadius: "50%" }}
-            />
-            )}
-
-            <input type="file" accept="image/*" onChange={handleFileChange} />
-
-            <button onClick={handleUpload} disabled={uploading}>
-            {uploading ? "Uploading..." : "Upload Image"}
+            <input type="file" accept="image/*" onChange={handleFileChange} id="imageUpload" />
+            <label
+                        
+                        style={{ 
+                            textAlign: "left",
+                            fontSize: "2em",
+                            color: "black",
+                            borderRadius: "5em",
+                            marginTop: "1rem",
+                            marginLeft: "3.5rem",
+                            borderWidth: "1px" 
+                            }}>Create a product or share a video!</label>
+            <button onClick={() => window.location.href = "/upload"} style={{ marginTop: "1rem", padding: "10px 20px", backgroundColor: "#0070f3", color: "white", border: "none", borderRadius: "6px", cursor: "pointer" }}>
+            +
             </button>
-        </div>
+            </div>
 
-        <button style={styles.logout} onClick={handleLogout}>
-            Logout
-        </button>
+            <button style={styles.logout} onClick={handleLogout}>
+                Logout
+            </button>
+           
         </div>
     );
     }
