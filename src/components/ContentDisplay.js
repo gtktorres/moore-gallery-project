@@ -31,6 +31,7 @@ function ContentDisplay() {
             width={1000} alt="Video"
             height={500} src={videoUrl}
             style={{borderRadius: "10px"}}
+            unoptimized
         />
     </div>,
     <div className="slide" key="slide-2">
@@ -38,6 +39,7 @@ function ContentDisplay() {
             width={1000} alt="Video"
             height={500} src={videoUrl}
             style={{borderRadius: "10px"}}
+            unoptimized
         />
     </div>,
     <div className="slide" key="slide-3">
@@ -45,6 +47,7 @@ function ContentDisplay() {
             width={1000} alt="Video"
             height={500} src={videoUrl}
             style={{borderRadius: "10px"}}
+            unoptimized
         />
     </div>
     ];

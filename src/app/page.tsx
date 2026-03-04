@@ -1,4 +1,3 @@
-import '../styles/globals.css'
 import ContentDisplay from '../components/ContentDisplay';
 
 export default function page() {
