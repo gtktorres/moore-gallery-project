@@ -38,10 +38,14 @@ export default function AccountDisplay() {
     };
 
   return (
-    <div style={styles?.container}>
-                <div style={styles?.card}>
-                    <h2>User Info:</h2>
-                    <div style={styles?.card}>
+    <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    }}>
+                <div style={{marginTop: "2rem"}}>
+                    <h2 style={{fontSize: "3rem"}}>User Info:</h2>
+                    <div style={{marginTop: "2rem"}}>
                         <h2>Email: {userEmail}</h2>
                     </div>
                     <div style={styles?.card}>
@@ -69,7 +73,7 @@ export default function AccountDisplay() {
                             fontSize: "2em",
                             color: "black",
                             borderRadius: "5em",
-                            marginTop: "1rem",
+                            marginTop: "2rem",
                             borderWidth: "1px" 
                             }}>Create a product or share a video!
                     </label>
@@ -79,13 +83,13 @@ export default function AccountDisplay() {
                         </button>
                     </div>
                 </div>
-            </div>
             <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                <button style={styles?.logout} onClick={handleLogout}>
+                <button style={{ backgroundColor: "red", color: "white", padding: "10px 20px", border: "none", borderRadius: "6px", cursor: "pointer" }} onClick={handleLogout}>
                     Logout
                 </button>
+            </div> 
             </div>
-           
+                      
         </div>
   );
 }

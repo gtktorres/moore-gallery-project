@@ -1,12 +1,11 @@
-import Account from "@/app/account/page";
 import { SignedIn, SignedOut, SignIn } from "@clerk/nextjs"
+import { redirect } from "next/navigation";
 
 export default function Page() {
   
   return (
     <div style={{
         display: "flex",
-        minHeight: "100vh",
         justifyContent: "center",
         alignItems: "center"
     }}>
@@ -14,7 +13,7 @@ export default function Page() {
         <SignIn />
       </SignedOut>
       <SignedIn>
-        <Account />
+        { redirect("/account") } 
       </SignedIn>
     </div>
   );

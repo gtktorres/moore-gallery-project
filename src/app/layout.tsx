@@ -4,12 +4,7 @@ import '../styles/client.css'
 import { CartProvider } from "@/components/CartContext";
 import React from "react";
 import { 
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
+  ClerkProvider
  } from "@clerk/nextjs";
 
 
