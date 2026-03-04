@@ -56,7 +56,7 @@ const UploadForm = () => {
 
     return(
         <form ref={formRef}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr', marginTop: '3rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr' }}>
                     <div>
                       <label
                         style={{ 
@@ -125,7 +125,7 @@ const UploadForm = () => {
                     </div>
                       <div>
                         <label 
-                            for="imageUpload"
+                            htmlFor="imageUpload"
                             style={{ 
                                 textAlign: "left",
                                 fontSize: "2em",
@@ -216,7 +216,6 @@ const UploadForm = () => {
                                 borderRadius: "5em",
                                 marginLeft: "3.5rem",
                                 marginTop: "2rem",
-                                marginBottom: "1rem",
                                 borderWidth: "1px",
                                 backgroundColor: "#0a4e9c",
                                 padding: "1rem 2rem",
