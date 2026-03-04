@@ -3,13 +3,13 @@ import { useUser } from "@clerk/nextjs";
 import { useState } from 'react';
 import { styles } from '../styles/globals.css';
 import Image from 'next/image';
-const videoUrl = ('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnlzNHNhYTlvanh0ZHB2cWRmeTdoeGxoMHZqNmZwd2lpbWM0Nm5lNSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1d5KycX3jcCyhGicqO/giphy.gif');
+const placeholderUrl = ('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnlzNHNhYTlvanh0ZHB2cWRmeTdoeGxoMHZqNmZwd2lpbWM0Nm5lNSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1d5KycX3jcCyhGicqO/giphy.gif');
 
 
 export default function AccountDisplay() {
   
     const [selectedFile, setSelectedFile] = useState(new File([], ""));
-    const [previewUrl, setPreviewUrl] = useState(videoUrl);
+    const [previewUrl, setPreviewUrl] = useState(placeholderUrl);
     const { isLoaded, isSignedIn, user } = useUser();
     
     if (!isLoaded) {
@@ -39,30 +39,29 @@ export default function AccountDisplay() {
 
   return (
     <div style={styles?.container}>
-                <h1>Account</h1>
                 <div style={styles?.card}>
-                    <h2>User Info</h2>
+                    <h2>User Info:</h2>
                     <div style={styles?.card}>
                         <h2>Email: {userEmail}</h2>
                     </div>
                     <div style={styles?.card}>
                         
-                            <div style={styles?.card}>
+                            <div className="profile-pic-container">
                                 
                                 <Image
-                                            width={1000} alt="Video"
-                                            height={500} src={previewUrl != null ? previewUrl : videoUrl}
-                                            style={{borderRadius: "10px"}}
+                                            className="profile-pic"
+                                            alt="Profile Picture"
+                                            src={previewUrl != null ? previewUrl : videoUrl}
+                                            width={100}
+                                            height={100}
                                             unoptimized
                                 />
+                                <button className="add-button" type="file" accept="image/*" onChange={handleFileChange} id="imageUpload">+</button>
 
-                            </div>
-
-                        
+                            </div>                        
                     </div>
 
                     <div style={styles?.card}>
-                    <input type="file" accept="image/*" onChange={handleFileChange} id="imageUpload" />
                     <label
                         
                         style={{ 
@@ -74,16 +73,18 @@ export default function AccountDisplay() {
                             borderWidth: "1px" 
                             }}>Create a product or share a video!
                     </label>
-
-            <button onClick={() => window.location.href = "/upload"} style={{ marginTop: "1rem", padding: "10px 20px", backgroundColor: "#0070f3", color: "white", border: "none", borderRadius: "6px", cursor: "pointer" }}>
-            +
-            </button>
+                    <div style={{ display: "flex", justifyContent: "left", alignItems: "center" }}>
+                        <button onClick={() => window.location.href = "/upload"} style={{ marginBottom: "1rem", padding: "10px 20px", backgroundColor: "#0070f3", color: "white", border: "none", borderRadius: "6px", cursor: "pointer" }}>
+                        +
+                        </button>
+                    </div>
+                </div>
             </div>
+            <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <button style={styles?.logout} onClick={handleLogout}>
+                    Logout
+                </button>
             </div>
-
-            <button style={styles?.logout} onClick={handleLogout}>
-                Logout
-            </button>
            
         </div>
   );
