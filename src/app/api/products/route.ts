@@ -8,7 +8,7 @@ export async function GET() {
 
     // Read products from local data file as the default data source.
     // If you have a real database, replace this logic with your DB client.
-    const products = await fetch(`https://localhost:7093/api/Buyers/ProductsGet`)
+    const products = await fetch('https://localhost:7093/api/Buyers/ProductsGet')
     const productsArray = Array.from(await products.json() as IProduct[]);
     console.log('Products array:', productsArray[0].image); // Log the first product to verify the structure
 

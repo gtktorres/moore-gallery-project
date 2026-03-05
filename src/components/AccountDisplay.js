@@ -10,15 +10,14 @@ export default function AccountDisplay() {
   
     const [selectedFile, setSelectedFile] = useState(new File([], ""));
     const [previewUrl, setPreviewUrl] = useState(placeholderUrl);
-    const { isLoaded, isSignedIn, user } = useUser();
+    const { isLoaded, user } = useUser();
     
     if (!isLoaded) {
         return <div>Loading...</div>
-    } if (!isSignedIn) {
-        return <div>Please sign in to view your account.</div>;
     }
 // Access the email address
-    const userEmail = user.primaryEmailAddress?.emailAddress;
+    const userEmail = user.primaryEmailAddress.emailAddress;
+    //user?.primaryEmailAddress?.emailAddress;
 
     const handleFileChange = (e) => {
         if (!e.target.files) return;

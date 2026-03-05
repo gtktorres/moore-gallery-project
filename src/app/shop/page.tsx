@@ -26,7 +26,7 @@ const Shop = async () => {
   const products = await res.json() as IProduct[]
   
   const mapper = () => {
-    return products.map((product: IProduct) => (
+    return Array.isArray(products) &&  products.map((product: IProduct) => (
       
       <div className="shop-item" key={product.id}>
             <div className="shop-item-image"> 
