@@ -6,6 +6,7 @@ import React from "react";
 import { 
   ClerkProvider
  } from "@clerk/nextjs";
+import { SyncUser } from "../components/ClerkModel";
 
 
 const Navbar = dynamic(
@@ -30,8 +31,9 @@ export default function RootLayout({
 }) {
   return (
       <html lang="en">
-          <CartProvider><ClerkProvider>      
+          <CartProvider><ClerkProvider>  
             <body>
+                <SyncUser />   
                 < Navbar /> 
                 {children}
             </body>

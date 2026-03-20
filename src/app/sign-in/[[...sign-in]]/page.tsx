@@ -1,3 +1,4 @@
+"use client"
 import { SignedIn, SignedOut, SignIn } from "@clerk/nextjs"
 import { redirect } from "next/navigation";
 
@@ -12,6 +13,7 @@ export default function Page() {
       <SignedOut>
         <SignIn />
       </SignedOut>
+
       <SignedIn>
         { redirect("/account") } 
       </SignedIn>

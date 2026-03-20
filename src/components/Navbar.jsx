@@ -11,7 +11,7 @@ const MENU_LIST = [
   { text: "Shop", href: "/shop" },
   { text: "Tutorials", href: "/tutorials" },
   { text: "About", href: "/about" },
-  { text: "Login", href: "/sign-in" }
+  { text: "Account", href: "/sign-in" }
 ];
 
 const Navbar = () => {

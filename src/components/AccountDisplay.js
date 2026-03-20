@@ -10,12 +10,14 @@ export default function AccountDisplay() {
   
     const [selectedFile, setSelectedFile] = useState(new File([], ""));
     const [previewUrl, setPreviewUrl] = useState(placeholderUrl);
-    const { isLoaded, user } = useUser();
+    const { isSignedIn, isLoaded, user } = useUser();
     
     if (!isLoaded) {
         return <div>Loading...</div>
     }
 // Access the email address
+    if(!isSignedIn || !user) { return <div>Not signed in</div> }
+
     const userEmail = user.primaryEmailAddress.emailAddress;
     //user?.primaryEmailAddress?.emailAddress;
 

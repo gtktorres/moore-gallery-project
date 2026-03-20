@@ -1,3 +1,5 @@
+import { NextApiRequest, NextApiResponse } from 'next';
+
 export{};
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'POST') {
@@ -12,9 +14,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         })
         })
 
-        const data = await user.json();
-        res.status(user.status).json(data);
+        const data = user.toString;
+        res.status(200).json(data);
     }else{
         res.setHeader('Allow', ['POST']);
         res.status(405).end(`Method ${req.method} Not Allowed`);
     }
+}
