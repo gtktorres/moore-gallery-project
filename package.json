@@ -1,6 +1,7 @@
 {
   "name": "moore-gallery-project",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -9,19 +10,37 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.39.0",
+    "@sendgrid/mail": "^8.1.6",
+    "@stripe/react-stripe-js": "^5.0.0",
+    "@stripe/stripe-js": "^8.1.0",
+    "cors": "^2.8.6",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "hellosign": "^0.0.7",
+    "hellosign-embedded": "^2.12.3",
+    "hls.js": "^1.6.13",
+    "match": "^1.2.11",
+    "next": "latest",
+    "pk": "^1.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.5"
+    "react-player": "^3.3.3",
+    "react-router-dom": "^7.9.4",
+    "reservekitjs": "^1.1.0",
+    "sendgrid": "^5.2.3",
+    "stripe": "^18.5.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.5",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }

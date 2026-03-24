@@ -1,8 +1,9 @@
 import { ReserveKit } from 'reservekitjs';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 const reservekit_api_key = process.env.RESERVE_KIT_API_KEY;
 
-export async function POST(req: any, res: any) {
+export async function POST(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.json({message: 'Method Not Allowed'});       
   }
