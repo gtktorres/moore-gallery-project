@@ -1,9 +1,12 @@
 export default interface IProduct {
   id: string;
-  name: string;
+  productId: string;
+  productName: string;
   description: string;
   price: number;
-  deals: string;
-  image: string; // Add this line to include the image property
+  quantity: string;
+  imageURL: string;
+  videoPath: string;
+  createdAt: Date;
 }
 

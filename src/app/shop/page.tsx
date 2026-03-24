@@ -16,7 +16,7 @@ import Image from 'next/image';
 // import Art014 from '../../components/Project-Images/Connie Art/8E30BA39-0E48-4722-B812-38FF2D3E7844.jpeg';
 import OrderAdd from '@/components/OrderAdd'; 
 import { GET } from '../api/products/route';
-import aboutImage from '../../components/Project-Images/about-image.jpeg';
+//import aboutImage from '../../components/Project-Images/about-image.jpeg';
 import IProduct from '@/components/IProduct';
 
 const Shop = async () => { 
@@ -24,14 +24,14 @@ const Shop = async () => {
 
   const res = await GET();
   const products = await res.json() as IProduct[]
-  
+  console.log(products);
   const mapper = () => {
     return Array.isArray(products) &&  products.map((product: IProduct) => (
       
       <div className="shop-item" key={product.id}>
             <div className="shop-item-image"> 
             <Image
-                src={ product.image || aboutImage}
+                src={ product.imageURL }
                 alt='Product Image'
                 width={300}
                 height={300}
@@ -39,7 +39,7 @@ const Shop = async () => {
                 style={{ borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", objectFit: "cover" }}
             />
             </div>
-            <h2>{product.name}</h2>
+            <h2>{product.productName}</h2>
             <p>{product.description}</p>
             <p>Price: ${product.price}</p>
             <OrderAdd item={product} />
@@ -52,7 +52,7 @@ const Shop = async () => {
   return (
     <div>
       <main>
-            <div className={`main-content`} style={{ marginBottom:"6rem", marginTop: "2.5rem", textAlign: "center" }}>
+            <div className={`main-content`} style={{ marginBottom:"4rem", marginTop: "2.5rem", textAlign: "center" }}>
                 <h1 style={{fontSize:"10em"}}>Shop</h1>
                 <p style={{textAlign:"center"}}>Welcome to our shop! Here are some of our products:</p>
             </div>
